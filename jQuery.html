@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function handler(e){
+            alert(e.data.msg);
+        }
+
+        function generate() {
+            for (var i = 0; i < 10; i++) {
+
+                var test = $('<button/>',
+                    {
+                        id: i,
+                        text: 'Button ' + i
+                    });
+
+                // test.bind("click", {msg: i}, function (e) {
+                //     alert('Button id : ' + e.data.msg);
+                // });
+
+                test.bind("click", {msg: i}, handler);
+
+                $('body').append(test);
+            }
+        }
+
+
+
+        function create() {
+            for (var i = 0 ; i < 10 ; i++){
+
+                var test = $('<button/>',
+                    {
+                        id: i,
+                        text: 'Test'
+                    });
+
+                test.bind("click", {msg: i}, function(e){
+                    alert('Button id : ' + e.data.msg);
+                });
+
+                $('body').append(test);
+
+
+                // debugger;
+
+                // var test2 = $('<button/>',
+                //     {
+                //         text: 'Test',
+                //         click: function () { alert('hi'); }
+                //     });
+
+
+
+
+                //   test.bind("click", {msg: i}, handler);
+
+
+
+
+
+                // test.on("click", {msg: i}, function(){
+                //     debugger;
+                //     alert('Button id : ' + msg.i);
+                // });
+
+
+
+
+
+                // test.bind("click", function(i){
+                //     debugger;
+                //     alert('Button id : ' + i);
+                // });
+                // test.bind("click",function () {
+                //
+                // })
+
+                // var parent = $('<tr><td></td></tr>').children().append(test).end();
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="generate()"/>
+
+</body>
+</html>

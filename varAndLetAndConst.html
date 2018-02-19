@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        const x = {
+            y:5
+        };
+        x.y = 6;
+
+        console.log(x);
+
+        const dragonEvents = [
+            {type:'attack',value:12, target:'player-dorkman'},
+            {type:'yawn',value:40},
+            {type:'eat', target:'horse'},
+            {type:'attack',value:23, target:'player-fluffykins'},
+            {type:'attack',value:12, target:'player-dorkman'}
+        ];
+
+        const reduceTotal = (prev,x) => (prev || 0) + x;
+        const isAttack = e => e.type === 'attack';
+        const totalDamageOnDorkMan = dragonEvents
+            .filter( isAttack)
+            .filter((e) => e.target === 'player-dorkman')
+            .map(e => e.value)
+            .reduce(reduceTotal)
+
+
+        console.log('totalDamageOnDorkMan\n',totalDamageOnDorkMan);
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <input type="button" onclick="generate()"/>
+
+</body>
+</html>
